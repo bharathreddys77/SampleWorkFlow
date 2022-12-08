@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ "master" ]
 jobs:
-    run_tests:
     runs-on: macos-latest
     name: test iOS
     steps:
