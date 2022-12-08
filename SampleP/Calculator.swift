@@ -11,4 +11,8 @@ class Calculator{
     public static func getAddition() -> Int {
         return 2+3
     }
+    
+    public static func substract() {
+        
+    }
 }
