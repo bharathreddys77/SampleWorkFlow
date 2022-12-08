@@ -5,24 +5,30 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-jobs:
-    runs-on: macos-latest
-    name: test iOS
-    steps:
-    - uses: actions/checkout@v1
-    - name: Select Xcode
-      run: sudo xcode-select -switch /Applications/Xcode.app && /usr/bin/xcodebuild -version
-    - name: Run tests
-      run: xcodebuild test -scheme SampleP -project SampleP.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 8,OS=15.2' | xcpretty && exit ${PIPESTATUS[0]}
+# jobs:
+#     build:
+#     runs-on: macos-latest
+#     name: test iOS
+#     steps:
+#     - uses: actions/checkout@v1
+#     - name: Select Xcode
+#       run: sudo xcode-select -switch /Applications/Xcode.app && /usr/bin/xcodebuild -version
+#     - name: Run tests
+#       run: xcodebuild test -scheme SampleP -project SampleP.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 8,OS=15.2' | xcpretty && exit ${PIPESTATUS[0]}
 
 #
-#jobs:
-#  build:
-#
-#    runs-on: macos-latest
-#
-#    steps:
-#    - uses: actions/checkout@v3
+jobs:
+ build:
+
+   runs-on: macos-latest
+   steps:
+   - uses: actions/checkout@v3
+   - name: Select Xcode
+     run: sudo xcode-select -switch /Applications/Xcode.app && /usr/bin/xcodebuild -version
+   - name: Run tests   
+     run: xcodebuild test -scheme SampleP -project SampleP.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 8,OS=15.2' | xcpretty && exit ${PIPESTATUS[0]}
+
+    
 #    - name: Build
 #      run: swift build -v
 #    - name: Run tests
