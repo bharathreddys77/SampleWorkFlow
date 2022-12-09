@@ -9,6 +9,7 @@ import Foundation
 
 class Calculator{
     public static func getAddition() -> Int {
+        print('test')
         return 2+3
     }
     
